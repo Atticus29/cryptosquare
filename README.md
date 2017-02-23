@@ -1,43 +1,34 @@
 
-# A bash script tool to help streamline creation of new websites for Epicodus
+# Website for encrypting top secret messages
 
-#### 10 Feb., 2017, v.1.0.1
+#### 23 Feb., 2017, v.1.0.1
 
-#### By Mark Fisher
+#### By Mark Fisher and Liam Stabeno
 
 ## Description
 
-This script takes three arguments from the user (repo name, parter 1 initials, and partner 2 initials), and uses those variables to create a directory with repo name, create a "css" subdirectory, create an "img" subdirectory, create a styles.css document in the css subdirectory, create an index.html document in the repo folder, initialized the folder as a git repo, executes `git pair` with partner 1's and partner 2's intials, adds everything, makes a first paired commit, and opens the directory in atom.
+Website for encrypting top secret messages using a cryptosquare.
 
 ### Specifications
 
-* The program should return __ when __.
-  * **Input Example**: 
-  * **Output Example**:
-
-* The program should return __ when __.
-  * **Input Example**: 
-  * **Output Example**:
+|Behavior|Input|Output|
+|:---:|:---:|:---:|
+|Get input text from the user and save as a string variable in front end|"evil User123!!!?"|`var usrInput = "evil Usersz123!!!?"`|
+|Remove all white space and non-character symbols from input variable|`var usrInput = "evil Usersz123!!!?"`|"evilUsersz"|
+|make the string lower case|"evilUsersz"|"evilusersz"|
+|Determine the number of characters of the cleaned-up input|"evilUser"|10|
+|Find out whether that number is a perfect square|10|false|
+|If it's not a perfect square, find the closest square number that is greater than it|10|16|
+|Treat the square root of that number as the number of rows. The number of columns is the smallest number that, when multiplied by our row number yields a number greater than the string length |10|4 rows x 3 columns|
+|Make a function that returns an array that puts column[#] characters into it, starting at index a of the cleaned up input string, one character per element in the array. If it runs of our characters to use, it adds elements that contain ""|`makeArray(colNum=3, start=0, str="evilusersz")`|["e", "v", "i"]|
+|Initialize an empty master array||`var master = []`|
+|Loop through row[#] times, each time calling the makeArray function written above using col[#] x number of times we've run the loop as our start point. Each loop run will push the resulting array of that function call into the master array|[]|[["e", "v", "i"],["l", "u", "s"],["e", "r", "s"],["z", "", ""]]|
+|Looping through row[#] times, grab the current loop number's index for each sub array, and concatenate that character to a(n ever-growing) string|""|"elezvuriss"|
+|Add a space every five characters|"elezvuriss"|"elezv uriss"|
 
 ## Setup/Installation Requirements
 
-### If working in pairs
-* Set up your .pairs document for the day
-* Clone this repo. (to your Desktop)
-* Open terminal
-* Navigate to the websiteRepoSetup directory: `cd ~/Desktop/websiteRepoSetup`. **This step is necessary because template files from websiteRepoSetup will need to be copied.**
-* Type `./websiteRepoSetup.sh [yourRepoName] [partner1Initials] [partner2Initials]`
-* Enjoy
-
-### If working alone
-* Clone this repo. (to your Desktop)
-* Open terminal
-* Navigate to the websiteRepoSetup directory: `cd ~/Desktop/websiteRepoSetup`. **This step is necessary because template files from websiteRepoSetup will need to be copied.**
-* Type `./websiteRepoSetupIndivid.sh [yourRepoName] ["Your first and last name in quotes"] [yourEmailAddress]
-* Enjoy
-
-### For the template
-* This repository is meant to be viewed. It can be viewed [here](https://Atticus29.github.io/_repoNameHere_).
+* This repository is meant to be viewed. It can be viewed [here](https://Atticus29.github.io/cryptosquare).
 
 ### Or if you're feeling bold, you can clone OR download a local instance of the site:
 
@@ -46,9 +37,9 @@ This script takes three arguments from the user (repo name, parter 1 initials, a
     * On a Mac, this would be in the Applications/Utilities directory, and is called, "Terminal"
     * Windows uses a Terminal program as well, but a Terminal with all the capabilities we'll require is not installed by default. Thankfully, we can easily download and install a Terminal program that does fit our needs.
 There are many options available, but we recommend using a terminal program called git bash. You can download this free program at [msysgit.github.io](https://git-for-windows.github.io/).
-  * Clone this track survey repository by typing, `git clone https://github.com/Atticus29/TrackSuggester.git` 
-* Download 
-  * Click [here](https://github.com/Atticus29/_repoNameHere_/archive/master.zip) to download the repo
+  * Clone this track survey repository by typing, `git clone https://github.com/Atticus29/TrackSuggester.git`
+* Download
+  * Click [here](https://github.com/Atticus29/cryptosquare/archive/master.zip) to download the repo
   * Unzip the zipped repository
 * Open the TrackSuggester folder and double-click on index.html.
 * Make your selections and click submit as instructed on the site.
@@ -79,7 +70,7 @@ Please feel free to contact mark.aaron.fisher@gmail.com for questions
 
 This software is licensed under the MIT license.
 
-Copyright (c) 2017 Mark Fisher and Clifford Grimmell
+Copyright (c) 2017 Mark Fisher and Liam Stabeno
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
