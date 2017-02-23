@@ -20,7 +20,7 @@ Website for encrypting top secret messages using a cryptosquare.
 |Find out whether that number is a perfect square|10|false|
 |If it's not a perfect square, find the closest square number that is greater than it|10|16|
 |Treat the square root of that number as the number of rows. The number of columns is the smallest integer that, when multiplied by our row number yields a number greater than the string length |10|4 rows x 3 columns|
-|Make a function that returns an array that puts column[#] characters into it, starting at index a of the cleaned up input string, one character per element in the array. If it runs of our characters to use, it adds elements that contain ""|`makeArray(colNum=3, start=0, str="evilusersz")`|["e", "v", "i"]|
+|Make a function that returns an array that puts column[#] characters into it, starting at index a of the cleaned up input string, one character per element in the array. If it runs out of characters to use, it adds elements that contain ""|`makeArray(colNum=3, start=0, str="evilusersz")`|["e", "v", "i"]|
 |Initialize an empty master array||`var master = []`|
 |Loop through row[#] times, each time calling the makeArray function written above using col[#] x number of times we've run the loop as our start point. Each loop run will push the resulting array of that function call into the master array|[]|[["e", "v", "i"],["l", "u", "s"],["e", "r", "s"],["z", "", ""]]|
 |Looping through row[#] times, grab the current loop number's index for each sub array, and concatenate that character to a(n ever-growing) string|""|"elezvuriss"|

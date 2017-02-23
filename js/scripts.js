@@ -1,19 +1,28 @@
 // Back End
 var encrypt = function(str){
   var cleanStr = cleanUserInput(str);
+  // console.log(cleanStr);
   var numChar = cleanStr.length;
-  // if(isPerfectSquare(numChar)){
-  //   var rowNum = Math.sqrt(numChar);
-  //   var colNum = Math.sqrt(numChar);
-  // }else{
-  // }
   // console.log(numChar);
   var rowNum = Math.sqrt(findClosestSquareGreaterThan(numChar));
   // console.log(rowNum);
   var colNum = Math.ceil(numChar/rowNum);
   // console.log(rowNum);
   // console.log(colNum);
+  masterArray = [];
+  for (var i = 0; i<rowNum; i++){
+    masterArray.push(makeArray(colNum,i*colNum, cleanStr));
+  }
+  console.log(masterArray);
 
+}
+
+var makeArray = function (colNum, start, str){
+  var newArray = [];
+  for (var i = 0; i<colNum; i++){
+    newArray.push(str[start+i]);
+  }
+  return newArray;
 }
 
 var findClosestSquareGreaterThan = function(num){
