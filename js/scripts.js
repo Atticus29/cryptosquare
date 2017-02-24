@@ -1,26 +1,39 @@
 // Back End
 var encrypt = function(str){
   var cleanStr = cleanUserInput(str);
-  // console.log(cleanStr);
   var numChar = cleanStr.length;
-  // console.log(numChar);
   var rowNum = Math.sqrt(findClosestSquareGreaterThan(numChar));
-  // console.log(rowNum);
   var colNum = Math.ceil(numChar/rowNum);
-  // console.log(rowNum);
-  // console.log(colNum);
   masterArray = [];
   for (var i = 0; i<rowNum; i++){
     masterArray.push(makeArray(colNum,i*colNum, cleanStr));
   }
-  console.log(masterArray);
-
+  // console.log(masterArray);
+  var finalStr="";
+  for (var i = 0; i<rowNum; i++){
+    masterArray.forEach(function(subArray){
+      finalStr += subArray[i];
+    });
+  }
+  // console.log(spaceEveryFifthChar(finalStr));
+  return spaceEveryFifthChar(finalStr);
 }
-
+var spaceEveryFifthChar = function(str){
+  var tmpArray = str.split("");
+  for (var i=5; i<tmpArray.length; i+=6){
+    tmpArray.splice(i,0," ");
+  }
+  return tmpArray.join("");
+}
 var makeArray = function (colNum, start, str){
   var newArray = [];
   for (var i = 0; i<colNum; i++){
     newArray.push(str[start+i]);
+  }
+  for (var i = 0; i<newArray.length; i++){
+    if(newArray[i]==undefined){
+      newArray[i]="";
+    }
   }
   return newArray;
 }
@@ -50,7 +63,9 @@ $(function(){
   $("#inputForm").submit(function(){
     $(".hiddenText").show();
     var inputText = $("#submitText").val();
-    $(".encrytedText").text(encrypt(inputText));
+    console.log(encrypt(inputText));
+    $(".encryptedText").text(encrypt(inputText));
+
     event.preventDefault();
   });
 });
